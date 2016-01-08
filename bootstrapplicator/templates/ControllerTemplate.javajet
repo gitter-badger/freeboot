@@ -1,0 +1,19 @@
+ <%@ jet package="io.freeboot.generators" imports="io.freeboot.generators.models.*" class="ControllerTemplate" %>
+<% ControllerModel model = (ControllerModel) argument; %> 
+ package io.freeboot.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class <%=model.getName()%>Controller {
+	
+    @RequestMapping("/")
+    String <%=model.getName().toLowerCase()%>(){
+        return "<%=model.getName().toLowerCase()%>";
+    }
+    
+}

@@ -1,0 +1,22 @@
+ <%@ jet package="io.freeboot.generators" imports="io.freeboot.generators.models.*" class="InterfaceTemplate" %>
+<% InterfaceModel model = (InterfaceModel) argument; 
+   String className = model.getClassRoot();
+   String lowerClass = className.toLowerCase();
+ %> 
+package <%=model.getPackageRoot()%>.services;
+
+import <%=model.getPackageRoot()%>.domain.<%=className%>;
+
+public interface I<%=className%>Service {
+
+	<%=className%> create<%=className%>(<%=className%> <%=lowerClass%>);
+	Iterable< <%=className%> > create<%=className%>(Iterable< <%=className%> > <%=lowerClass%>);
+	Iterable< <%=className%> > getAll<%=className%>();
+	<%=className%> get<%=className%>ById(Integer id);
+	boolean <%=lowerClass%>Exists(Integer id);
+	long <%=lowerClass%>Count();
+	void delete<%=className%>(Integer id);
+	void detele<%=className%>(<%=className%> <%=lowerClass%>);
+	void delete<%=className%>(Iterable< <%=className%> > <%=lowerClass%>);
+
+}

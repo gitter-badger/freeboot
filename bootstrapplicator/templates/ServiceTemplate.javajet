@@ -1,0 +1,65 @@
+ <%@ jet package="io.freeboot.generators" imports="io.freeboot.generators.models.*" class="ServiceTemplate" %>
+<% ServiceModel model = (ServiceModel) argument; 
+   String className = model.getClassRoot();
+   String lowerClass = className.toLowerCase();
+ %> 
+package <%=model.getPackageRoot()%>.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import <%=model.getPackageRoot()%>.<%=className%>;
+import <%=model.getPackageRoot()%>.repositories.<%=className%>Repository;
+
+@Service
+public class <%=className%>Service implements I<%=className%>Service {
+
+	@Autowired
+	private <%=className%>Repository <%=lowerClass%>Repo;
+	
+	@Override
+	public <%=className%> get<%=className%>ById(Integer id) {
+		return <%=lowerClass%>Repo.findOne(id);
+	}
+
+	@Override
+	public Iterable< <%=className%> > getAll<%=className%>() {
+		return <%=lowerClass%>Repo.findAll();
+	}
+	
+	@Override
+	public <%=className%> create<%=className%>(<%=className%> <%=lowerClass%>) {
+		return <%=lowerClass%>Repo.save(<%=lowerClass%>);
+	}
+	
+	@Override
+	public Iterable< <%=className%> > create<%=className%>(Iterable< <%=className%> > <%=lowerClass%>) {
+		return <%=lowerClass%>Repo.save(<%=lowerClass%>);
+	}
+	
+	@Override
+	public boolean <%=lowerClass%>Exists(Integer id) {
+		return <%=lowerClass%>Repo.exists(id);
+	}
+	
+	@Override
+	public long <%=lowerClass%>Count() {
+		return <%=lowerClass%>Repo.count();
+	}
+	
+	@Override
+	public void delete<%=className%>(Integer id) {
+		<%=lowerClass%>Repo.delete(id);
+	}
+	
+	@Override
+	public void delete<%=className%>(<%=className%> <%=lowerClass%>) {
+		<%=lowerClass%>Repo.delete(<%=lowerClass%>);
+	}
+	
+	@Override
+	public void delete<%=className%>(Iterable< <%=className%> > <%=lowerClass%>) {
+		<%=lowerClass%>Repo.delete(<%=lowerClass%>);
+	}
+	
+}

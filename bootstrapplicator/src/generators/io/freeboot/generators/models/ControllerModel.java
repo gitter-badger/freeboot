@@ -1,19 +1,22 @@
 package io.freeboot.generators.models;
 
-public class ControllerModel {
+import io.freeboot.generators.models.base.AbstractControllerModel;
 
-	private String name;
+public class ControllerModel extends AbstractControllerModel {
+
+	//private List<ControllerRequestMapping> requestMappings;
 	
-	public ControllerModel(String name) {
-		this.name = name;
+	public ControllerModel(String classRoot, String packageRoot) {
+		super(classRoot, packageRoot);
 	}
 
-	public String getName() {
-		return name;
+/*	public List<ControllerRequestMapping> getRequestMappings() {
+		return requestMappings;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+	public ControllerModel setRequestMappings(List<ControllerRequestMapping> requestMappings) {
+		this.requestMappings = requestMappings;
+		return this;
+	}*/
 	
 }

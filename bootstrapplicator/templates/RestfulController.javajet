@@ -1,0 +1,73 @@
+ <%@ jet package="io.freeboot.generators" imports="io.freeboot.generators.models.*" class="RestfulControllerTemplate" %>
+<% ControllerModel model = (ControllerModel) argument; 
+   String className = model.getClassRoot();
+   String lowerClass = className.toLowerCase();
+ %> 
+
+package <%=model.getPackageRoot()%>.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping(value="/<%=lowerClass%>")
+public class <%=className%>Controller {
+     
+    @Autowired
+    private <%=className%>Service <%=lowerClass%>Service;
+     
+    @RequestMapping(value="/create", method=RequestMethod.GET)
+    public String create<%=className%>Page(Model model) {
+    	model.addAttribute("<%=lowerClass%>", new <%=className%>());
+        return "<%=lowerClass%>/new-<%=lowerClass%>";
+    }
+     
+    @RequestMapping(value="/create", method=RequestMethod.POST, 
+            produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public <%=className%> create<%=className%>(@RequestBody <%=className%> <%=lowerClass%>) {
+        return <%=lowerClass%>Service.create(<%=lowerClass%>);
+    }
+     
+    @RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
+    public String edit<%=className%>Page(@PathVariable int id, Model model) {
+        model.addAttribute("<%=lowerClass%>", <%=lowerClass%>Service.get<%=className%>ById(id));
+        return "<%=lowerClass%>/edit-<%=lowerClass%>";
+    }
+     
+    @RequestMapping(value="/edit/{id}", method=RequestMethod.PUT, 
+            produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public <%=className%> edit<%=className%>(@PathVariable int id, 
+            @RequestBody <%=className%> <%=lowerClass%>) {
+        <%=lowerClass%>.setId(id);
+        return <%=lowerClass%>Service.update(<%=lowerClass%>);
+    }
+     
+    @RequestMapping(value="/delete/{id}", method=RequestMethod.DELETE, 
+            produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public <%=className%> delete<%=className%>(@PathVariable int id) {
+        return <%=lowerClass%>Service.delete(id);
+    }
+     
+    @RequestMapping(value="", method=RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List< <%=className%> > all<%=className%>() {
+        return <%=lowerClass%>Service.getAll();
+    }
+     
+    @RequestMapping(value="", method=RequestMethod.GET)
+    public String all<%=className%>Page(Model model) {
+        List< <%=className%> > <%=lowerClass%>List = new ArrayList<<%=className%>>();
+        <%=lowerClass%>List.addAll(all<%=className%>());
+        model.addAttribute("<%=lowerClass%>List", <%=lowerClass%>List);
+        return "<%=lowerClass%>/all-<%=lowerClass%>";
+    }
+     
+}

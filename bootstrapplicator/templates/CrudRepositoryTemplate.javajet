@@ -1,0 +1,14 @@
+ <%@ jet package="io.freeboot.generators" imports="io.freeboot.generators.models.*" class="CrudRepositoryTemplate" %>
+<% RepositoryModel model = (RepositoryModel) argument; 
+   String className = model.getClassRoot();
+   String lowerClass = className.toLowerCase();
+ %> 
+package <%=model.getPackageRoot()%>.repositories;
+
+import org.springframework.data.repository.CrudRepository;
+
+import <%=model.getPackageRoot()%>.domain.<%=className%>;
+
+public interface <%=className%>Repository extends CrudRepository< <%=className%>, Integer> {
+
+}

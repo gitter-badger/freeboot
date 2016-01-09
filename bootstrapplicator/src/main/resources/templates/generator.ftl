@@ -1,1 +1,0 @@
-<p>Generate the <a href="/generate/controller/?controllerName=Index">IndexController</a></p>

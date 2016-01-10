@@ -16,7 +16,7 @@ public interface I<%=className%>Service {
 	boolean <%=lowerClass%>Exists(Integer id);
 	long <%=lowerClass%>Count();
 	void delete<%=className%>(Integer id);
-	void detele<%=className%>(<%=className%> <%=lowerClass%>);
+	void delete<%=className%>(<%=className%> <%=lowerClass%>);
 	void delete<%=className%>(Iterable< <%=className%> > <%=lowerClass%>);
 
 }

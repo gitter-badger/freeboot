@@ -34,7 +34,7 @@ public class InterfaceTemplate
   protected final String TEXT_18 = "ById(Integer id);" + NL + "\tboolean ";
   protected final String TEXT_19 = "Exists(Integer id);" + NL + "\tlong ";
   protected final String TEXT_20 = "Count();" + NL + "\tvoid delete";
-  protected final String TEXT_21 = "(Integer id);" + NL + "\tvoid detele";
+  protected final String TEXT_21 = "(Integer id);" + NL + "\tvoid delete";
   protected final String TEXT_22 = "(";
   protected final String TEXT_23 = " ";
   protected final String TEXT_24 = ");" + NL + "\tvoid delete";

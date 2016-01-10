@@ -6,6 +6,8 @@
 
 package <%=model.getPackageRoot()%>.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -64,7 +66,7 @@ public class <%=className%>Controller {
      
     @RequestMapping(value="", method=RequestMethod.GET)
     public String all<%=className%>Page(Model model) {
-        List< <%=className%> > <%=lowerClass%>List = new ArrayList<<%=className%>>();
+        List< <%=className%> > <%=lowerClass%>List = new ArrayList<>();
         <%=lowerClass%>List.addAll(all<%=className%>());
         model.addAttribute("<%=lowerClass%>List", <%=lowerClass%>List);
         return "<%=lowerClass%>/all-<%=lowerClass%>";

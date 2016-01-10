@@ -16,7 +16,7 @@ public class RestfulControllerTemplate
   public final String NL = nl == null ? (System.getProperties().getProperty("line.separator")) : nl;
   protected final String TEXT_1 = " ";
   protected final String TEXT_2 = " " + NL + "" + NL + "package ";
-  protected final String TEXT_3 = ".controllers;" + NL + "" + NL + "import org.springframework.stereotype.Controller;" + NL + "import org.springframework.ui.Model;" + NL + "import org.springframework.web.bind.annotation.RequestBody;" + NL + "import org.springframework.web.bind.annotation.RequestMapping;" + NL + "import org.springframework.web.bind.annotation.RequestMethod;" + NL + "import org.springframework.web.bind.annotation.ResponseBody;" + NL + "" + NL + "@Controller" + NL + "@RequestMapping(value=\"/";
+  protected final String TEXT_3 = ".controllers;" + NL + "" + NL + "import org.springframework.beans.factory.annotation.Autowired;" + NL + "import org.springframework.http.MediaType;" + NL + "import org.springframework.stereotype.Controller;" + NL + "import org.springframework.ui.Model;" + NL + "import org.springframework.web.bind.annotation.RequestBody;" + NL + "import org.springframework.web.bind.annotation.RequestMapping;" + NL + "import org.springframework.web.bind.annotation.RequestMethod;" + NL + "import org.springframework.web.bind.annotation.ResponseBody;" + NL + "" + NL + "@Controller" + NL + "@RequestMapping(value=\"/";
   protected final String TEXT_4 = "\")" + NL + "public class ";
   protected final String TEXT_5 = "Controller {" + NL + "     " + NL + "    @Autowired" + NL + "    private ";
   protected final String TEXT_6 = "Service ";
@@ -54,15 +54,14 @@ public class RestfulControllerTemplate
   protected final String TEXT_38 = "Service.getAll();" + NL + "    }" + NL + "     " + NL + "    @RequestMapping(value=\"\", method=RequestMethod.GET)" + NL + "    public String all";
   protected final String TEXT_39 = "Page(Model model) {" + NL + "        List< ";
   protected final String TEXT_40 = " > ";
-  protected final String TEXT_41 = "List = new ArrayList<";
-  protected final String TEXT_42 = ">();";
-  protected final String TEXT_43 = NL + "        ";
-  protected final String TEXT_44 = "List.addAll(all";
-  protected final String TEXT_45 = "());" + NL + "        model.addAttribute(\"";
-  protected final String TEXT_46 = "List\", ";
-  protected final String TEXT_47 = "List);" + NL + "        return \"";
-  protected final String TEXT_48 = "/all-";
-  protected final String TEXT_49 = "\";" + NL + "    }" + NL + "     " + NL + "}";
+  protected final String TEXT_41 = "List = new ArrayList<>();";
+  protected final String TEXT_42 = NL + "        ";
+  protected final String TEXT_43 = "List.addAll(all";
+  protected final String TEXT_44 = "());" + NL + "        model.addAttribute(\"";
+  protected final String TEXT_45 = "List\", ";
+  protected final String TEXT_46 = "List);" + NL + "        return \"";
+  protected final String TEXT_47 = "/all-";
+  protected final String TEXT_48 = "\";" + NL + "    }" + NL + "     " + NL + "}";
 
   public String generate(Object argument)
   {
@@ -150,12 +149,12 @@ public class RestfulControllerTemplate
     stringBuffer.append(TEXT_40);
     stringBuffer.append(lowerClass);
     stringBuffer.append(TEXT_41);
-    stringBuffer.append(className);
     stringBuffer.append(TEXT_42);
-    stringBuffer.append(TEXT_43);
     stringBuffer.append(lowerClass);
-    stringBuffer.append(TEXT_44);
+    stringBuffer.append(TEXT_43);
     stringBuffer.append(className);
+    stringBuffer.append(TEXT_44);
+    stringBuffer.append(lowerClass);
     stringBuffer.append(TEXT_45);
     stringBuffer.append(lowerClass);
     stringBuffer.append(TEXT_46);
@@ -163,8 +162,6 @@ public class RestfulControllerTemplate
     stringBuffer.append(TEXT_47);
     stringBuffer.append(lowerClass);
     stringBuffer.append(TEXT_48);
-    stringBuffer.append(lowerClass);
-    stringBuffer.append(TEXT_49);
     return stringBuffer.toString();
   }
 }

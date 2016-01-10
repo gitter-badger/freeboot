@@ -61,7 +61,7 @@ public class <%=className%>Controller {
             produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List< <%=className%> > all<%=className%>() {
-        return <%=lowerClass%>Service.getAll();
+        return <%=lowerClass%>Service.getAll<%=className%>();
     }
      
     @RequestMapping(value="", method=RequestMethod.GET)

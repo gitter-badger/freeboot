@@ -51,17 +51,18 @@ public class RestfulControllerTemplate
   protected final String TEXT_35 = "Service.delete(id);" + NL + "    }" + NL + "     " + NL + "    @RequestMapping(value=\"\", method=RequestMethod.GET," + NL + "            produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)" + NL + "    @ResponseBody" + NL + "    public List< ";
   protected final String TEXT_36 = " > all";
   protected final String TEXT_37 = "() {" + NL + "        return ";
-  protected final String TEXT_38 = "Service.getAll();" + NL + "    }" + NL + "     " + NL + "    @RequestMapping(value=\"\", method=RequestMethod.GET)" + NL + "    public String all";
-  protected final String TEXT_39 = "Page(Model model) {" + NL + "        List< ";
-  protected final String TEXT_40 = " > ";
-  protected final String TEXT_41 = "List = new ArrayList<>();";
-  protected final String TEXT_42 = NL + "        ";
-  protected final String TEXT_43 = "List.addAll(all";
-  protected final String TEXT_44 = "());" + NL + "        model.addAttribute(\"";
-  protected final String TEXT_45 = "List\", ";
-  protected final String TEXT_46 = "List);" + NL + "        return \"";
-  protected final String TEXT_47 = "/all-";
-  protected final String TEXT_48 = "\";" + NL + "    }" + NL + "     " + NL + "}";
+  protected final String TEXT_38 = "Service.getAll";
+  protected final String TEXT_39 = "();" + NL + "    }" + NL + "     " + NL + "    @RequestMapping(value=\"\", method=RequestMethod.GET)" + NL + "    public String all";
+  protected final String TEXT_40 = "Page(Model model) {" + NL + "        List< ";
+  protected final String TEXT_41 = " > ";
+  protected final String TEXT_42 = "List = new ArrayList<>();";
+  protected final String TEXT_43 = NL + "        ";
+  protected final String TEXT_44 = "List.addAll(all";
+  protected final String TEXT_45 = "());" + NL + "        model.addAttribute(\"";
+  protected final String TEXT_46 = "List\", ";
+  protected final String TEXT_47 = "List);" + NL + "        return \"";
+  protected final String TEXT_48 = "/all-";
+  protected final String TEXT_49 = "\";" + NL + "    }" + NL + "     " + NL + "}";
 
   public String generate(Object argument)
   {
@@ -147,14 +148,14 @@ public class RestfulControllerTemplate
     stringBuffer.append(TEXT_39);
     stringBuffer.append(className);
     stringBuffer.append(TEXT_40);
-    stringBuffer.append(lowerClass);
-    stringBuffer.append(TEXT_41);
-    stringBuffer.append(TEXT_42);
-    stringBuffer.append(lowerClass);
-    stringBuffer.append(TEXT_43);
     stringBuffer.append(className);
-    stringBuffer.append(TEXT_44);
+    stringBuffer.append(TEXT_41);
     stringBuffer.append(lowerClass);
+    stringBuffer.append(TEXT_42);
+    stringBuffer.append(TEXT_43);
+    stringBuffer.append(lowerClass);
+    stringBuffer.append(TEXT_44);
+    stringBuffer.append(className);
     stringBuffer.append(TEXT_45);
     stringBuffer.append(lowerClass);
     stringBuffer.append(TEXT_46);
@@ -162,6 +163,8 @@ public class RestfulControllerTemplate
     stringBuffer.append(TEXT_47);
     stringBuffer.append(lowerClass);
     stringBuffer.append(TEXT_48);
+    stringBuffer.append(lowerClass);
+    stringBuffer.append(TEXT_49);
     return stringBuffer.toString();
   }
 }

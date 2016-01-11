@@ -66,9 +66,7 @@ public class <%=className%>Controller {
      
     @RequestMapping(value="", method=RequestMethod.GET)
     public String all<%=className%>Page(Model model) {
-        List< <%=className%> > <%=lowerClass%>List = new ArrayList<>();
-        <%=lowerClass%>List.addAll(all<%=className%>());
-        model.addAttribute("<%=lowerClass%>List", <%=lowerClass%>List);
+        model.addAttribute("<%=lowerClass%>List", all<%=className%>());
         return "<%=lowerClass%>/all-<%=lowerClass%>";
     }
      

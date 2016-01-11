@@ -54,16 +54,11 @@ public class RestfulControllerTemplate
   protected final String TEXT_38 = "() {" + NL + "        return ";
   protected final String TEXT_39 = "Service.getAll";
   protected final String TEXT_40 = "();" + NL + "    }" + NL + "     " + NL + "    @RequestMapping(value=\"\", method=RequestMethod.GET)" + NL + "    public String all";
-  protected final String TEXT_41 = "Page(Model model) {" + NL + "        List< ";
-  protected final String TEXT_42 = " > ";
-  protected final String TEXT_43 = "List = new ArrayList<>();";
-  protected final String TEXT_44 = NL + "        ";
-  protected final String TEXT_45 = "List.addAll(all";
-  protected final String TEXT_46 = "());" + NL + "        model.addAttribute(\"";
-  protected final String TEXT_47 = "List\", ";
-  protected final String TEXT_48 = "List);" + NL + "        return \"";
-  protected final String TEXT_49 = "/all-";
-  protected final String TEXT_50 = "\";" + NL + "    }" + NL + "     " + NL + "}";
+  protected final String TEXT_41 = "Page(Model model) {" + NL + "        model.addAttribute(\"";
+  protected final String TEXT_42 = "List\", all";
+  protected final String TEXT_43 = "());" + NL + "        return \"";
+  protected final String TEXT_44 = "/all-";
+  protected final String TEXT_45 = "\";" + NL + "    }" + NL + "     " + NL + "}";
 
   public String generate(Object argument)
   {
@@ -150,23 +145,14 @@ public class RestfulControllerTemplate
     stringBuffer.append(TEXT_40);
     stringBuffer.append(className);
     stringBuffer.append(TEXT_41);
-    stringBuffer.append(className);
-    stringBuffer.append(TEXT_42);
     stringBuffer.append(lowerClass);
+    stringBuffer.append(TEXT_42);
+    stringBuffer.append(className);
     stringBuffer.append(TEXT_43);
+    stringBuffer.append(lowerClass);
     stringBuffer.append(TEXT_44);
     stringBuffer.append(lowerClass);
     stringBuffer.append(TEXT_45);
-    stringBuffer.append(className);
-    stringBuffer.append(TEXT_46);
-    stringBuffer.append(lowerClass);
-    stringBuffer.append(TEXT_47);
-    stringBuffer.append(lowerClass);
-    stringBuffer.append(TEXT_48);
-    stringBuffer.append(lowerClass);
-    stringBuffer.append(TEXT_49);
-    stringBuffer.append(lowerClass);
-    stringBuffer.append(TEXT_50);
     return stringBuffer.toString();
   }
 }

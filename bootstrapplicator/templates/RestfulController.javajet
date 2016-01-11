@@ -32,7 +32,7 @@ public class <%=className%>Controller {
             produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public <%=className%> create<%=className%>(@RequestBody <%=className%> <%=lowerClass%>) {
-        return <%=lowerClass%>Service.create(<%=lowerClass%>);
+        return <%=lowerClass%>Service.create<%=className%>(<%=lowerClass%>);
     }
      
     @RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
@@ -47,7 +47,7 @@ public class <%=className%>Controller {
     public <%=className%> edit<%=className%>(@PathVariable int id, 
             @RequestBody <%=className%> <%=lowerClass%>) {
         <%=lowerClass%>.setId(id);
-        return <%=lowerClass%>Service.update(<%=lowerClass%>);
+        return <%=lowerClass%>Service.update<%=className%>(<%=lowerClass%>);
     }
      
     @RequestMapping(value="/delete/{id}", method=RequestMethod.DELETE, 

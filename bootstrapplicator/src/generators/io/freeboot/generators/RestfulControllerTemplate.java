@@ -45,24 +45,25 @@ public class RestfulControllerTemplate
   protected final String TEXT_29 = NL + "        ";
   protected final String TEXT_30 = ".setId(id);" + NL + "        return ";
   protected final String TEXT_31 = "Service.update(";
-  protected final String TEXT_32 = ");" + NL + "    }" + NL + "     " + NL + "    @RequestMapping(value=\"/delete/{id}\", method=RequestMethod.DELETE, " + NL + "            produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)" + NL + "    @ResponseBody" + NL + "    public ";
-  protected final String TEXT_33 = " delete";
-  protected final String TEXT_34 = "(@PathVariable int id) {" + NL + "        return ";
-  protected final String TEXT_35 = "Service.delete(id);" + NL + "    }" + NL + "     " + NL + "    @RequestMapping(value=\"\", method=RequestMethod.GET," + NL + "            produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)" + NL + "    @ResponseBody" + NL + "    public List< ";
-  protected final String TEXT_36 = " > all";
-  protected final String TEXT_37 = "() {" + NL + "        return ";
-  protected final String TEXT_38 = "Service.getAll";
-  protected final String TEXT_39 = "();" + NL + "    }" + NL + "     " + NL + "    @RequestMapping(value=\"\", method=RequestMethod.GET)" + NL + "    public String all";
-  protected final String TEXT_40 = "Page(Model model) {" + NL + "        List< ";
-  protected final String TEXT_41 = " > ";
-  protected final String TEXT_42 = "List = new ArrayList<>();";
-  protected final String TEXT_43 = NL + "        ";
-  protected final String TEXT_44 = "List.addAll(all";
-  protected final String TEXT_45 = "());" + NL + "        model.addAttribute(\"";
-  protected final String TEXT_46 = "List\", ";
-  protected final String TEXT_47 = "List);" + NL + "        return \"";
-  protected final String TEXT_48 = "/all-";
-  protected final String TEXT_49 = "\";" + NL + "    }" + NL + "     " + NL + "}";
+  protected final String TEXT_32 = ");" + NL + "    }" + NL + "     " + NL + "    @RequestMapping(value=\"/delete/{id}\", method=RequestMethod.DELETE, " + NL + "            produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)" + NL + "    @ResponseBody" + NL + "    public void delete";
+  protected final String TEXT_33 = "(@PathVariable int id) {";
+  protected final String TEXT_34 = NL + "        ";
+  protected final String TEXT_35 = "Service.delete";
+  protected final String TEXT_36 = "(id);" + NL + "    }" + NL + "     " + NL + "    @RequestMapping(value=\"\", method=RequestMethod.GET," + NL + "            produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)" + NL + "    @ResponseBody" + NL + "    public List< ";
+  protected final String TEXT_37 = " > all";
+  protected final String TEXT_38 = "() {" + NL + "        return ";
+  protected final String TEXT_39 = "Service.getAll";
+  protected final String TEXT_40 = "();" + NL + "    }" + NL + "     " + NL + "    @RequestMapping(value=\"\", method=RequestMethod.GET)" + NL + "    public String all";
+  protected final String TEXT_41 = "Page(Model model) {" + NL + "        List< ";
+  protected final String TEXT_42 = " > ";
+  protected final String TEXT_43 = "List = new ArrayList<>();";
+  protected final String TEXT_44 = NL + "        ";
+  protected final String TEXT_45 = "List.addAll(all";
+  protected final String TEXT_46 = "());" + NL + "        model.addAttribute(\"";
+  protected final String TEXT_47 = "List\", ";
+  protected final String TEXT_48 = "List);" + NL + "        return \"";
+  protected final String TEXT_49 = "/all-";
+  protected final String TEXT_50 = "\";" + NL + "    }" + NL + "     " + NL + "}";
 
   public String generate(Object argument)
   {
@@ -134,7 +135,6 @@ public class RestfulControllerTemplate
     stringBuffer.append(TEXT_32);
     stringBuffer.append(className);
     stringBuffer.append(TEXT_33);
-    stringBuffer.append(className);
     stringBuffer.append(TEXT_34);
     stringBuffer.append(lowerClass);
     stringBuffer.append(TEXT_35);
@@ -142,22 +142,22 @@ public class RestfulControllerTemplate
     stringBuffer.append(TEXT_36);
     stringBuffer.append(className);
     stringBuffer.append(TEXT_37);
-    stringBuffer.append(lowerClass);
-    stringBuffer.append(TEXT_38);
     stringBuffer.append(className);
+    stringBuffer.append(TEXT_38);
+    stringBuffer.append(lowerClass);
     stringBuffer.append(TEXT_39);
     stringBuffer.append(className);
     stringBuffer.append(TEXT_40);
     stringBuffer.append(className);
     stringBuffer.append(TEXT_41);
-    stringBuffer.append(lowerClass);
-    stringBuffer.append(TEXT_42);
-    stringBuffer.append(TEXT_43);
-    stringBuffer.append(lowerClass);
-    stringBuffer.append(TEXT_44);
     stringBuffer.append(className);
-    stringBuffer.append(TEXT_45);
+    stringBuffer.append(TEXT_42);
     stringBuffer.append(lowerClass);
+    stringBuffer.append(TEXT_43);
+    stringBuffer.append(TEXT_44);
+    stringBuffer.append(lowerClass);
+    stringBuffer.append(TEXT_45);
+    stringBuffer.append(className);
     stringBuffer.append(TEXT_46);
     stringBuffer.append(lowerClass);
     stringBuffer.append(TEXT_47);
@@ -165,6 +165,8 @@ public class RestfulControllerTemplate
     stringBuffer.append(TEXT_48);
     stringBuffer.append(lowerClass);
     stringBuffer.append(TEXT_49);
+    stringBuffer.append(lowerClass);
+    stringBuffer.append(TEXT_50);
     return stringBuffer.toString();
   }
 }

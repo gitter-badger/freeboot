@@ -6,6 +6,7 @@ public class CrudFace {
 	private String interfaceClass;
 	private String serviceClass;
 	private String repositoryClass;
+	private String restClient;
 	
 	public String getControllerClass() {
 		return controllerClass;
@@ -40,6 +41,15 @@ public class CrudFace {
 	
 	public CrudFace setRepositoryClass(String repositoryClass) {
 		this.repositoryClass = repositoryClass;
+		return this;
+	}
+
+	public String getRestClient() {
+		return restClient;
+	}
+
+	public CrudFace setRestClient(String restClient) {
+		this.restClient = restClient;
 		return this;
 	}
 }

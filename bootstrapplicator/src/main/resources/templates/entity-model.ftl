@@ -6,10 +6,10 @@
 		<input type="text" class="form-control" id="packageName">
 	</div>
 	<div class="form-group">
-		<label for="className">
+		<label for="entityName">
 			Entity Name
 		</label>
-		<input type="text" class="form-control" id="className">
+		<input type="text" class="form-control" id="entityName">
 	</div>
 	<a class="btn btn-default" id="generate-button">
 		Generate Code

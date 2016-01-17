@@ -1,11 +1,11 @@
 $(document).ready(function() {
 	$('a#generate-button').click(function() {
 
-		var className = $('#className').val();
+		var entityName = $('#entityName').val();
 		var packageName = $('#packageName').val();
-		var json = { "className" : className,
+		var json = { "entityName" : entityName,
 				"packageName" : packageName};
-
+		
 		$.ajax({
 			url: "generate",
 			data: JSON.stringify(json),
@@ -20,6 +20,7 @@ $(document).ready(function() {
 				$("#interface-code").html(crud.interfaceClass);         
 				$("#service-code").html(crud.serviceClass);         
 				$("#repository-code").html(crud.repositoryClass);         
+				$("#rest-client-code").html(crud.restClient);         
 			}
 		});
 

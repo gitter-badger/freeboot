@@ -25,7 +25,7 @@ public class <%=className%>Controller {
     @RequestMapping(value="/create", method=RequestMethod.GET)
     public String create<%=className%>Page(Model model) {
     	model.addAttribute("<%=lowerClass%>", new <%=className%>());
-        return "<%=lowerClass%>/new-<%=lowerClass%>";
+        return "<%=lowerClass%>/new";
     }
      
     @RequestMapping(value="/create", method=RequestMethod.POST, 
@@ -35,10 +35,39 @@ public class <%=className%>Controller {
         return <%=lowerClass%>Service.create<%=className%>(<%=lowerClass%>);
     }
      
+    @RequestMapping(value="/all", method=RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List< <%=className%> > all<%=className%>() {
+        return <%=lowerClass%>Service.getAll<%=className%>();
+    }
+     
+    @RequestMapping(value="/all", method=RequestMethod.GET)
+    public String all<%=className%>Page(Model model) {
+        model.addAttribute("<%=lowerClass%>List", all<%=className%>());
+        return "<%=lowerClass%>/all";
+    }
+    
+    
+    @RequestMapping(value="/get/{id}", method=RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List< <%=className%> > get<%=className%>(@PathVariable int id) {
+        return <%=lowerClass%>Service.get<%=className%>ById(id);
+    }
+     
+    @RequestMapping(value="/get/{id}", method=RequestMethod.GET)
+    public String get<%=className%>Page(@PathVariable int id, Model model) {
+        model.addAttribute("<%=lowerClass%>List", get<%=className%>(id));
+        return "<%=lowerClass%>/one";
+    }
+    
+    
+    
     @RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
     public String edit<%=className%>Page(@PathVariable int id, Model model) {
         model.addAttribute("<%=lowerClass%>", <%=lowerClass%>Service.get<%=className%>ById(id));
-        return "<%=lowerClass%>/edit-<%=lowerClass%>";
+        return "<%=lowerClass%>/edit";
     }
      
     @RequestMapping(value="/edit/{id}", method=RequestMethod.PUT, 
@@ -57,17 +86,5 @@ public class <%=className%>Controller {
         <%=lowerClass%>Service.delete<%=className%>(id);
     }
      
-    @RequestMapping(value="", method=RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public List< <%=className%> > all<%=className%>() {
-        return <%=lowerClass%>Service.getAll<%=className%>();
-    }
-     
-    @RequestMapping(value="", method=RequestMethod.GET)
-    public String all<%=className%>Page(Model model) {
-        model.addAttribute("<%=lowerClass%>List", all<%=className%>());
-        return "<%=lowerClass%>/all-<%=lowerClass%>";
-    }
      
 }

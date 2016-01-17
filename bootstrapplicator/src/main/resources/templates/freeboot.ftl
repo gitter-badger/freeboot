@@ -42,6 +42,9 @@
 					<li>
 						<a href="#panel-repository" data-toggle="tab">Repository</a>
 					</li>
+					<li>
+						<a href="#panel-rest-client" data-toggle="tab">Rest Client</a>
+					</li>
 				</ul>
 				<div class="tab-content">
 					<div class="tab-pane active" id="panel-model">
@@ -72,6 +75,13 @@
 						<p>
 							<pre>
 								<code class="java hljs" id="repository-code"></code>
+							</pre>
+						</p>
+					</div>
+					<div class="tab-pane" id="panel-rest-client">
+						<p>
+							<pre>
+								<code class="java hljs" id="rest-client-code"></code>
 							</pre>
 						</p>
 					</div>

@@ -1,0 +1,107 @@
+ <%@ jet package="io.freeboot.generators" imports="io.freeboot.generators.models.*" class="jQueryRestClientTemplate" %>
+<% String entity = ((String)argument).toLowerCase();%>
+
+
+//rest-client.js
+function callRestEndpoint(httpVerb, endpointURL, entityData, successCallback, errorCallback) {
+
+	$.ajax({
+		method: httpVerb,
+		url: endpointURL,
+        data: JSON.stringify(entityData),
+        contentType: "application/json",
+        dataType: "json",
+        success: function (data, status, jqXHR) {
+             successCallback(data);
+        },
+        error: function (jqXHR, status) {            
+             errorCallback(status);
+        }
+	});
+}
+
+//<%=entity%>-service-client.js
+function <%=entity%>Create(data) {
+	callRestEndpoint(
+			"POST",
+			"/<%=entity%>/create",
+			data,
+			<%=entity%>CreateSuccessCallback,
+			<%=entity%>CreateErrorCallback);
+}
+
+function <%=entity%>CreateSuccessCallback(data) {
+	//alert(data); - update the DOM here
+}
+
+function <%=entity%>CreateErrorCallback(status) {
+	alert("something went wrong! status=" + status);
+}
+
+function <%=entity%>Get(id) {
+	callRestEndpoint(
+			"GET",
+			"/<%=entity%>/get/" + id,
+			null,
+			<%=entity%>GetSuccessCallback,
+			<%=entity%>GetErrorCallback);
+}
+
+function <%=entity%>GetSuccessCallback(data) {
+	//alert(data); - update the DOM here
+}
+
+function <%=entity%>GetErrorCallback(status) {
+	alert("something went wrong! status=" + status);
+}
+
+function <%=entity%>GetAll() {
+	callRestEndpoint(
+			"GET",
+			"/<%=entity%>/all",
+			null,
+			<%=entity%>GetAllSuccessCallback,
+			<%=entity%>GetAllErrorCallback);
+}
+
+function <%=entity%>GetAllSuccessCallback(data) {
+	//alert(data); - update the DOM here
+}
+
+function <%=entity%>GetAllErrorCallback(status) {
+	alert("something went wrong! status=" + status);
+}
+
+function <%=entity%>Edit(id, data) {
+	callRestEndpoint(
+			"PUT",
+			"/<%=entity%>/edit/" + id,
+			data,
+			<%=entity%>EditSuccessCallback,
+			<%=entity%>EditErrorCallback);
+}
+
+function <%=entity%>EditSuccessCallback(data) {
+	//alert(data); - update the DOM here
+}
+
+function <%=entity%>EditErrorCallback(status) {
+	alert("something went wrong! status=" + status);
+}
+
+function <%=entity%>Delete(id) {
+	callRestEndpoint(
+			"DELETE",
+			"/<%=entity%>/delete/" + id,
+			null,
+			<%=entity%>DeleteSuccessCallback,
+			<%=entity%>DeleteErrorCallback);
+}
+
+function <%=entity%>DeleteSuccessCallback(data) {
+	//alert(data); - update the DOM here
+}
+
+function <%=entity%>EditErrorCallback(status) {
+	alert("something went wrong! status=" + status);
+}

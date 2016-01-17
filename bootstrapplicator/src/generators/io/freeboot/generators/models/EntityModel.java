@@ -11,8 +11,8 @@ public class EntityModel {
 		return entityName;
 	}
 
-	public void setClassName(String className) {
-		this.entityName = className;
+	public void setEntityName(String entityName) {
+		this.entityName = entityName;
 	}
 
 	public String getPackageName() {

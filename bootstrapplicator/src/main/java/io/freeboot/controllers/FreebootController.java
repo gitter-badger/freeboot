@@ -11,6 +11,7 @@ import io.freeboot.generators.CrudRepositoryTemplate;
 import io.freeboot.generators.InterfaceTemplate;
 import io.freeboot.generators.RestfulControllerTemplate;
 import io.freeboot.generators.ServiceTemplate;
+import io.freeboot.generators.jQueryRestClientTemplate;
 import io.freeboot.generators.models.ControllerModel;
 import io.freeboot.generators.models.EntityModel;
 import io.freeboot.generators.models.InterfaceModel;
@@ -25,6 +26,7 @@ public class FreebootController {
 	private CrudRepositoryTemplate repository = new CrudRepositoryTemplate ();
 	private InterfaceTemplate interfaceTemplate = new InterfaceTemplate();
 	private ServiceTemplate service = new ServiceTemplate();
+	private jQueryRestClientTemplate restClient = new jQueryRestClientTemplate();
 	
 	@RequestMapping("/") 
 	public String freeboot(Model model) {
@@ -43,7 +45,8 @@ public class FreebootController {
 			.setControllerClass(generateController(model))
 			.setInterfaceClass(generateInterface(model))
 			.setServiceClass(generateService(model))
-			.setRepositoryClass(generateRepository(model));
+			.setRepositoryClass(generateRepository(model))
+			.setRestClient(generateRestClient(model));
 		
 		return generatedClasses;
 	}
@@ -62,5 +65,9 @@ public class FreebootController {
 
 	private String generateService(EntityModel model) {
 		return service.generate(new ServiceModel(model.getEntityName(), model.getPackageName()));
+	}
+	
+	private String generateRestClient(EntityModel model) {
+		return restClient.generate(model.getEntityName());
 	}
 }

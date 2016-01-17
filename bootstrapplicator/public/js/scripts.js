@@ -6,11 +6,12 @@ $(document).ready(function() {
 		var json = { "entityName" : entityName,
 				"packageName" : packageName};
 		
+		alert(JSON.stringify(json));
+		
 		$.ajax({
 			url: "generate",
 			data: JSON.stringify(json),
 			type: "POST",
-
 			beforeSend: function(xhr) {
 				xhr.setRequestHeader("Accept", "application/json");
 				xhr.setRequestHeader("Content-Type", "application/json");

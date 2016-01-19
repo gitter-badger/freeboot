@@ -70,8 +70,6 @@ public class FreebootController {
 	}
 	
 	private String generateRestClient(EntityModel model) {
-		return restClient.generate(
-			CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_HYPHEN, model.getEntityName()) 
-		);
+		return restClient.generate(new ControllerModel(model.getEntityName(), model.getPackageName()));
 	}
 }

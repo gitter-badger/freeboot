@@ -1,5 +1,9 @@
  <%@ jet package="io.freeboot.generators" imports="io.freeboot.generators.models.*" class="jQueryRestClientTemplate" %>
-<% String entity = ((String)argument).toLowerCase();%>
+<%
+   ControllerModel model = (ControllerModel) argument; 
+   String lowerCamel = model.getClassRootCamelCase();
+   String kebabCase = model.getClassRootKebabCase(); 
+%>
 
 //rest-client.js
 function callRestEndpoint(httpVerb, endpointURL, entityData, successCallback, errorCallback) {
@@ -32,88 +36,88 @@ function callRestEndpoint(httpVerb, endpointURL, entityData, successCallback, er
 	}
 }
 
-//<%=entity%>-service-client.js
-function <%=entity%>Create(data) {
+//<%=kebabCase%>.service-client.js
+function <%=lowerCamel%>Create(data) {
 	callRestEndpoint(
 			"POST",
-			"/<%=entity%>/create",
+			"/<%=kebabCase%>/create",
 			data,
-			<%=entity%>CreateSuccessCallback,
-			<%=entity%>CreateErrorCallback);
+			<%=lowerCamel%>CreateSuccessCallback,
+			<%=lowerCamel%>CreateErrorCallback);
 }
 
-function <%=entity%>CreateSuccessCallback(data) {
+function <%=lowerCamel%>CreateSuccessCallback(data) {
 	//alert(data); - update the DOM here
 }
 
-function <%=entity%>CreateErrorCallback(status) {
+function <%=lowerCamel%>CreateErrorCallback(status) {
 	alert("something went wrong! status=" + status);
 }
 
-function <%=entity%>Get(id) {
+function <%=lowerCamel%>Get(id) {
 	callRestEndpoint(
 			"GET",
-			"/<%=entity%>/get/" + id,
+			"/<%=kebabCase%>/get/" + id,
 			null,
-			<%=entity%>GetSuccessCallback,
-			<%=entity%>GetErrorCallback);
+			<%=lowerCamel%>GetSuccessCallback,
+			<%=lowerCamel%>GetErrorCallback);
 }
 
-function <%=entity%>GetSuccessCallback(data) {
+function <%=lowerCamel%>GetSuccessCallback(data) {
 	//alert(data); - update the DOM here
 }
 
-function <%=entity%>GetErrorCallback(status) {
+function <%=lowerCamel%>GetErrorCallback(status) {
 	alert("something went wrong! status=" + status);
 }
 
-function <%=entity%>GetAll() {
+function <%=lowerCamel%>GetAll() {
 	callRestEndpoint(
 			"GET",
-			"/<%=entity%>/all",
+			"/<%=kebabCase%>/all",
 			null,
-			<%=entity%>GetAllSuccessCallback,
-			<%=entity%>GetAllErrorCallback);
+			<%=lowerCamel%>GetAllSuccessCallback,
+			<%=lowerCamel%>GetAllErrorCallback);
 }
 
-function <%=entity%>GetAllSuccessCallback(data) {
+function <%=lowerCamel%>GetAllSuccessCallback(data) {
 	//alert(data); - update the DOM here
 }
 
-function <%=entity%>GetAllErrorCallback(status) {
+function <%=lowerCamel%>GetAllErrorCallback(status) {
 	alert("something went wrong! status=" + status);
 }
 
-function <%=entity%>Edit(id, data) {
+function <%=lowerCamel%>Edit(id, data) {
 	callRestEndpoint(
 			"PUT",
-			"/<%=entity%>/edit/" + id,
+			"/<%=kebabCase%>/edit/" + id,
 			data,
-			<%=entity%>EditSuccessCallback,
-			<%=entity%>EditErrorCallback);
+			<%=lowerCamel%>EditSuccessCallback,
+			<%=lowerCamel%>EditErrorCallback);
 }
 
-function <%=entity%>EditSuccessCallback(data) {
+function <%=lowerCamel%>EditSuccessCallback(data) {
 	//alert(data); - update the DOM here
 }
 
-function <%=entity%>EditErrorCallback(status) {
+function <%=lowerCamel%>EditErrorCallback(status) {
 	alert("something went wrong! status=" + status);
 }
 
-function <%=entity%>Delete(id) {
+function <%=lowerCamel%>Delete(id) {
 	callRestEndpoint(
 			"DELETE",
-			"/<%=entity%>/delete/" + id,
+			"/<%=kebabCase%>/delete/" + id,
 			null,
-			<%=entity%>DeleteSuccessCallback,
-			<%=entity%>DeleteErrorCallback);
+			<%=lowerCamel%>DeleteSuccessCallback,
+			<%=lowerCamel%>DeleteErrorCallback);
 }
 
-function <%=entity%>DeleteSuccessCallback(data) {
+function <%=lowerCamel%>DeleteSuccessCallback(data) {
 	//alert(data); - update the DOM here
 }
 
-function <%=entity%>EditErrorCallback(status) {
+function <%=lowerCamel%>EditErrorCallback(status) {
 	alert("something went wrong! status=" + status);
 }

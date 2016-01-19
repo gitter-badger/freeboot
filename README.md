@@ -1,4 +1,3 @@
-A code generation web-app for spring-boot.
 # Freeboot.io
 A code generation web-app for `spring-boot` projects.
 
@@ -25,6 +24,7 @@ Freeboot.io is born out of the [UNIX philosophy](https://en.wikipedia.org/wiki/U
 
 > #### The rule of optimization:
 > Developers should prototype software before polishing it. This rule aims to prevent developers from spending too much time for marginal gains.
+
 
 ### How It Works
 

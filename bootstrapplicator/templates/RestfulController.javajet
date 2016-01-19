@@ -1,7 +1,8 @@
  <%@ jet package="io.freeboot.generators" imports="io.freeboot.generators.models.*" class="RestfulControllerTemplate" %>
 <% ControllerModel model = (ControllerModel) argument; 
    String className = model.getClassRoot();
-   String lowerClass = className.toLowerCase();
+   String lowerCamel = model.getClassRootCamelCase();
+   String kebabCase = model.getClassRootKebabCase();
  %> 
 
 package <%=model.getPackageRoot()%>.controllers;
@@ -16,36 +17,36 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value="/<%=lowerClass%>")
+@RequestMapping(value="/<%=kebabCase%>")
 public class <%=className%>Controller {
      
     @Autowired
-    private <%=className%>Service <%=lowerClass%>Service;
+    private <%=className%>Service <%=lowerCamel%>Service;
      
     @RequestMapping(value="/create", method=RequestMethod.GET)
     public String create<%=className%>Page(Model model) {
-    	model.addAttribute("<%=lowerClass%>", new <%=className%>());
-        return "<%=lowerClass%>/new";
+    	model.addAttribute("<%=lowerCamel%>", new <%=className%>());
+        return "<%=kebabCase%>/new";
     }
      
     @RequestMapping(value="/create", method=RequestMethod.POST, 
             produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public <%=className%> create<%=className%>(@RequestBody <%=className%> <%=lowerClass%>) {
-        return <%=lowerClass%>Service.create<%=className%>(<%=lowerClass%>);
+    public <%=className%> create<%=className%>(@RequestBody <%=className%> <%=lowerCamel%>) {
+        return <%=lowerCamel%>Service.create<%=className%>(<%=lowerCamel%>);
     }
      
     @RequestMapping(value="/all", method=RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List< <%=className%> > all<%=className%>() {
-        return <%=lowerClass%>Service.getAll<%=className%>();
+        return <%=lowerCamel%>Service.getAll<%=className%>();
     }
      
     @RequestMapping(value="/all", method=RequestMethod.GET)
     public String all<%=className%>Page(Model model) {
-        model.addAttribute("<%=lowerClass%>List", all<%=className%>());
-        return "<%=lowerClass%>/all";
+        model.addAttribute("<%=lowerCamel%>List", all<%=className%>());
+        return "<%=kebabCase%>/all";
     }
     
     
@@ -53,37 +54,37 @@ public class <%=className%>Controller {
             produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List< <%=className%> > get<%=className%>(@PathVariable int id) {
-        return <%=lowerClass%>Service.get<%=className%>ById(id);
+        return <%=lowerCamel%>Service.get<%=className%>ById(id);
     }
      
     @RequestMapping(value="/get/{id}", method=RequestMethod.GET)
     public String get<%=className%>Page(@PathVariable int id, Model model) {
-        model.addAttribute("<%=lowerClass%>List", get<%=className%>(id));
-        return "<%=lowerClass%>/one";
+        model.addAttribute("<%=lowerCamel%>List", get<%=className%>(id));
+        return "<%=kebabCase%>/one";
     }
     
     
     
     @RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
     public String edit<%=className%>Page(@PathVariable int id, Model model) {
-        model.addAttribute("<%=lowerClass%>", <%=lowerClass%>Service.get<%=className%>ById(id));
-        return "<%=lowerClass%>/edit";
+        model.addAttribute("<%=lowerCamel%>", <%=lowerCamel%>Service.get<%=className%>ById(id));
+        return "<%=kebabCase%>/edit";
     }
      
     @RequestMapping(value="/edit/{id}", method=RequestMethod.PUT, 
             produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public <%=className%> edit<%=className%>(@PathVariable int id, 
-            @RequestBody <%=className%> <%=lowerClass%>) {
-        <%=lowerClass%>.setId(id);
-        return <%=lowerClass%>Service.update<%=className%>(<%=lowerClass%>);
+            @RequestBody <%=className%> <%=lowerCamel%>) {
+        <%=lowerCamel%>.setId(id);
+        return <%=lowerCamel%>Service.update<%=className%>(<%=lowerCamel%>);
     }
      
     @RequestMapping(value="/delete/{id}", method=RequestMethod.DELETE, 
             produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public void delete<%=className%>(@PathVariable int id) {
-        <%=lowerClass%>Service.delete<%=className%>(id);
+        <%=lowerCamel%>Service.delete<%=className%>(id);
     }
      
      

@@ -1,5 +1,7 @@
 package io.freeboot.generators.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class EntityModel {
 
 	private String packageName;

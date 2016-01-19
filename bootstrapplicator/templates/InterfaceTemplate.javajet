@@ -1,7 +1,7 @@
  <%@ jet package="io.freeboot.generators" imports="io.freeboot.generators.models.*" class="InterfaceTemplate" %>
 <% InterfaceModel model = (InterfaceModel) argument; 
    String className = model.getClassRoot();
-   String lowerClass = className.toLowerCase();
+   String lowerClass = model.getClassRootCamelCase();
  %> 
 package <%=model.getPackageRoot()%>.services;
 

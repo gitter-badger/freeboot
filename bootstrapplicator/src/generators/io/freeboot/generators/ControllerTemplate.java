@@ -32,9 +32,9 @@ public class ControllerTemplate
     stringBuffer.append(TEXT_3);
     stringBuffer.append(model.getClassName());
     stringBuffer.append(TEXT_4);
-    stringBuffer.append(model.getClassRoot().toLowerCase());
+    stringBuffer.append(model.getClassRootCamelCase());
     stringBuffer.append(TEXT_5);
-    stringBuffer.append(model.getClassRoot().toLowerCase());
+    stringBuffer.append(model.getClassRootCamelCase());
     stringBuffer.append(TEXT_6);
     stringBuffer.append(TEXT_7);
     return stringBuffer.toString();

@@ -1,23 +1,35 @@
  <%@ jet package="io.freeboot.generators" imports="io.freeboot.generators.models.*" class="jQueryRestClientTemplate" %>
 <% String entity = ((String)argument).toLowerCase();%>
 
-
 //rest-client.js
 function callRestEndpoint(httpVerb, endpointURL, entityData, successCallback, errorCallback) {
-
-	$.ajax({
-		method: httpVerb,
-		url: endpointURL,
-        data: JSON.stringify(entityData),
-        contentType: "application/json",
-        dataType: "json",
-        success: function (data, status, jqXHR) {
-             successCallback(data);
-        },
-        error: function (jqXHR, status) {            
-             errorCallback(status);
-        }
-	});
+	if(entityData != null) {
+		$.ajax({
+			method: httpVerb,
+			url: endpointURL,
+			data: JSON.stringify(entityData),
+			contentType: "application/json",
+			dataType: "json",
+			success: function (data, status, jqXHR) {
+				successCallback(data);
+			},
+			error: function (jqXHR, status) {            
+				errorCallback(status);
+			}
+		});
+	} else {
+		$.ajax({
+			method: httpVerb,
+			url: endpointURL,
+			dataType: "json",
+			success: function (data, status, jqXHR) {
+				successCallback(data);
+			},
+			error: function (jqXHR, status) {            
+				errorCallback(status);
+			}
+		});
+	}
 }
 
 //<%=entity%>-service-client.js

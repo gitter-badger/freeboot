@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.common.base.CaseFormat;
+
 import io.freeboot.generators.CrudRepositoryTemplate;
 import io.freeboot.generators.InterfaceTemplate;
 import io.freeboot.generators.RestfulControllerTemplate;
@@ -68,6 +70,8 @@ public class FreebootController {
 	}
 	
 	private String generateRestClient(EntityModel model) {
-		return restClient.generate(model.getEntityName());
+		return restClient.generate(
+			CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_HYPHEN, model.getEntityName()) 
+		);
 	}
 }

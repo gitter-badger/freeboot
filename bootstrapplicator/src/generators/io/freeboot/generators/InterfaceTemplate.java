@@ -48,7 +48,7 @@ public class InterfaceTemplate
     stringBuffer.append(TEXT_1);
      InterfaceModel model = (InterfaceModel) argument; 
    String className = model.getClassRoot();
-   String lowerClass = className.toLowerCase();
+   String lowerClass = model.getClassRootCamelCase();
  
     stringBuffer.append(TEXT_2);
     stringBuffer.append(model.getPackageRoot());

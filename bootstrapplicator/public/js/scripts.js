@@ -6,8 +6,6 @@ $(document).ready(function() {
 		var json = { "entityName" : entityName,
 				"packageName" : packageName};
 		
-		alert(JSON.stringify(json));
-		
 		$.ajax({
 			url: "generate",
 			data: JSON.stringify(json),

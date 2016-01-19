@@ -1,5 +1,7 @@
 package io.freeboot.generators.models.base;
 
+import com.google.common.base.CaseFormat;
+
 import io.freeboot.generators.models.ClassType;
 
 public abstract class AbstractClassModel {
@@ -16,6 +18,14 @@ public abstract class AbstractClassModel {
 	
 	public String getClassRoot() {
 		return classRoot;
+	}
+	
+	public String getClassRootCamelCase() {
+		return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, getClassRoot());
+	}
+	
+	public String getClassRootKebabCase() {
+		return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_HYPHEN, getClassRoot());
 	}
 	
 	public final String getClassName() {

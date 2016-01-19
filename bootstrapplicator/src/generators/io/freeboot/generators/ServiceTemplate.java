@@ -67,7 +67,7 @@ public class ServiceTemplate
     stringBuffer.append(TEXT_1);
      ServiceModel model = (ServiceModel) argument; 
    String className = model.getClassRoot();
-   String lowerClass = className.toLowerCase();
+   String lowerClass = model.getClassRootCamelCase();
  
     stringBuffer.append(TEXT_2);
     stringBuffer.append(model.getPackageRoot());

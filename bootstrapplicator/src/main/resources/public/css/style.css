@@ -1,4 +1,12 @@
+body {
+	margin-bottom: 50px;
+}
+
 div.content-wrapper {
 	width: 960px;
 	margin-top:7%;
+}
+
+.navbar-right {
+	margin-right: 0px;
 }

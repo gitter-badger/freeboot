@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
     <link href="css/style.css" rel="stylesheet">
     
-	<title>Freeboot.io</title>
+	<title>freeboot.io</title>
   </head>
   <body>
 
@@ -24,6 +24,14 @@
 		</div>
 	</div>
 	<div class="row">
+		<#include "/explainer.ftl">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1>
+					Generator <small>0.3.0-ALPHA</small>
+				</h1>
+			</div>
+		</div>
 		<div class="col-md-12">
 			<div class="tabbable" id="tabs-700440">
 				<ul class="nav nav-tabs">
@@ -48,7 +56,16 @@
 				</ul>
 				<div class="tab-content">
 					<div class="tab-pane active" id="panel-model">
-						<#include "/entity-model.ftl">			
+						<#include "/entity-model.ftl">
+						<div class="col-md-12">
+							<div class="page-header">
+								<h1>
+									Instructions
+								</h1>
+							</div>
+						</div>
+						<hr />
+						<#include "/instructions.ftl">	
 					</div>
 					<div class="tab-pane" id="panel-controller">
 						<p>

@@ -1,4 +1,6 @@
 # Freeboot.io
+
+[![Join the chat at https://gitter.im/nicostouch/freeboot](https://badges.gitter.im/nicostouch/freeboot.svg)](https://gitter.im/nicostouch/freeboot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 A code generation web-app for `spring-boot` projects.
 
 Given just a package name and the name of business entity wish to model, Freeboot.io will generate an entire `spring-boot` project capable of all CRUD operations that includes:
